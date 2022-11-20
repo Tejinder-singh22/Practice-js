@@ -97,6 +97,25 @@ const Order = require('./Model/orderModel.js')
 // console.log('djdsjklj');
 
 
+// simple logic of promise
+// javascript run asynchronously can't wait for task if it took's time ..basically run's next one and whenever 1st one complets it's execution will run then
+
+function myGreeting(){
+
+    // some code that takes time to execute -> handeled by event loop event loop 
+    setTimeout(()=>{
+       return console.log('here i am 1st');
+    },2000);   
+}
+
+myGreeting();
+console.log('here i am 2nd');
+
+
+
+
+
+
 
 
 //  promises
@@ -137,7 +156,7 @@ const Order = require('./Model/orderModel.js')
 //    })
 // }
 
-// myGreeting('i will run first').then(()=>{
+// myGreeting('i will run first').then(()=>{  //took 3 seconds
 
 // remain().then(()=>{
 //    console.log('i am last one');
@@ -154,10 +173,6 @@ const Order = require('./Model/orderModel.js')
 // });
 
 
-
-
-
-
 //async await
 
     // function myGreeting2(name){
@@ -170,7 +185,7 @@ const Order = require('./Model/orderModel.js')
     //            }
     //            else
     //            {
-    //               reject('kutch theek nhi hai');
+    //               reject('some thing went wrong');
     //            }
                 
     //         }, 3000);
@@ -183,11 +198,11 @@ const Order = require('./Model/orderModel.js')
     //          let error  = false;
     //          if(!error){
     //             console.log(name);
-    //             resolve();
+    //             resolve('resolved greet');
     //          }
     //          else
     //          {
-    //             reject('kutch theek nhi hai');
+    //             reject('something went wrong');
     //          }
             
     //       }, 3000);
@@ -205,6 +220,7 @@ const Order = require('./Model/orderModel.js')
     // try{
     //   const rr =  await myGreeting('i will run first');
     //   const rr2 = await myGreeting2('i will run first-2');
+    //   console.log(rr);
     //    remain();
     // }
     // catch(e){
